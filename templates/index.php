@@ -406,7 +406,6 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Function to handle scrolling to the top of the page
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
@@ -414,7 +413,6 @@
             });
         }
 
-        // Function to toggle the visibility of the top-up icon based on scroll position
         window.addEventListener('scroll', function() {
             var topUpBtn = document.getElementById('topUpBtn');
             if (window.scrollY > window.innerHeight / 2) {
