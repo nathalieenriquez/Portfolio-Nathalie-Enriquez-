@@ -121,13 +121,12 @@
       </style>
 </head>
 <body>
-    <div class="container" style="margin-top: 3rem;">
+    <div class="container" style="margin-top: 4rem;">
         <header class="header">
             <div class="row align-items-center">
                 <div class="col">
                     <img src="../assets/images/NE-w.png"
-                        width="7%"
-                        alt=""/>
+                        width="7%">
                 </div>
                 <div class="col">
                     <nav class="navbar">
