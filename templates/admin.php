@@ -16,6 +16,10 @@
     <style>
         body {
             background-color: #f5f7fa;
+            padding-left: 280px; 
+            padding-right: 28px; 
+            padding-top: 3rem;
+            box-sizing: border-box;
         }
 
         .sidenav {
@@ -73,6 +77,50 @@
         .section.active {
             display: block;
         }
+
+        .rectangle {
+            background-color:#f5f6f7;
+            padding: 20px;
+            /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16); */
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .upload-image {
+            background-color: #f5f5ed;
+            width: 150px;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .description-box {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .description-input {
+            background-color: #f5f5ed;
+            width: 100%;
+            height: 165px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
+        }
     </style>
 </head>
 <body>
@@ -87,10 +135,20 @@
     <a href="#contact"><i class="fa-solid fa-address-card" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Contact</span></a>
 </div>
 
-<div class="container" style="margin-top: 3rem; margin-left: 280px;">
-    <div id="about" class="section active">
+<div class="container">
+    <div id="about">
         <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 600;">About Me</h1>
-        <p>This is the about section content.</p>
+    </div>
+
+    <div class="rectangle">
+        <div class="upload-image" onclick="document.getElementById('imageInput').click()">
+            <img src="uploadimage.png" style="width: 100px; height: 100px">
+            <input type="file" id="imageInput" style="display: none;">
+        </div>
+        <div class="description-box">
+            <div class="title">Description</div>
+            <textarea class="description-input"></textarea>
+        </div>
     </div>
 </div>
 
