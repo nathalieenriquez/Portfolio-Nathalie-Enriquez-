@@ -10,7 +10,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
+    
     <title>Admin (Portfolio-NE)</title>
 
     <style>
@@ -78,10 +79,11 @@
             display: block;
         }
 
-        .rectangle {
-            background-color:#f5f6f7;
+        .personal {
+            display: flex;
+            align-items: center;
+            background-color: #f5f6f7;
             padding: 20px;
-            /* box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16); */
             border: 1px solid rgba(0, 0, 0, 0.4);
             border-radius: 10px;
             width: 100%;
@@ -90,36 +92,73 @@
         }
 
         .upload-image {
-            background-color: #f5f5ed;
+            background-color: #f5f7f5;
             width: 150px;
             height: 200px;
             border: 1px solid #ccc;
             border-radius: 10px;
-            display: inline-block;
+            display: flex; /* Apply flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
             cursor: pointer;
             margin-right: 20px;
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .upload-image img {
+            max-width: 100%; /* Maximum width */
+            max-height: 100%; /* Maximum height */
+            display: block;
+            margin: auto; /* Center image */
         }
 
         .description-box {
-            display: inline-block;
-            vertical-align: top;
+            flex-grow: 1; /* Take remaining space */
         }
 
-        .title {
+        .description-box p {
+            font-size: 14px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+            font-weight: 500;
             margin-bottom: 10px;
         }
 
         .description-input {
-            background-color: #f5f5ed;
-            width: 100%;
+            background-color: #f5f7f5;
+            width: calc(100% - 150px - 20px); /* Adjust width */
             height: 165px;
             border: 1px solid #ccc;
             border-radius: 10px;
             padding: 10px;
             box-sizing: border-box;
             resize: none;
+        }
+
+        .rectangle {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            width: auto;
+            display: inline-block; /* Adjust display property */
+            margin-bottom: 10px; /* Add margin bottom */
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        #chooseImageBtn {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block; /* Make label a block element */
+        }
+
+        #chooseImageBtn:hover {
+            background-color: #e0e0e0;
         }
     </style>
 </head>
@@ -140,18 +179,34 @@
         <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 600;">About Me</h1>
     </div>
 
-    <div class="rectangle">
-        <div class="upload-image" onclick="document.getElementById('imageInput').click()">
-            <img src="uploadimage.png" style="width: 100px; height: 100px">
-            <input type="file" id="imageInput" style="display: none;">
+    <div class="personal">
+        <div class="rectangle" style="margin-right: 15px;">
+            <input type="file" id="imageInput" name="image" accept="image/*">
+            <label for="imageInput" id="chooseImageBtn">Choose Image</label>
         </div>
         <div class="description-box">
-            <div class="title">Description</div>
+            <p>Description</p>
             <textarea class="description-input"></textarea>
         </div>
     </div>
 </div>
 
+<script>
+    document.getElementById('imageInput').addEventListener('change', function() {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            // Create an image element
+            var img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '100%';
+            // Append the image to the description box
+            document.querySelector('.description-box').appendChild(img);
+        };
+        // Read the uploaded file as a data URL
+        reader.readAsDataURL(file);
+    });
+</script>
 
 </body>
 </html>

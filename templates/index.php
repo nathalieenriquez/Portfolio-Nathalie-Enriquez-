@@ -16,7 +16,6 @@
     <style>
         body {
             background-color: #2f2f2f;
-            /* 5e2012 */
         }
 
         ::-webkit-scrollbar {
@@ -81,6 +80,10 @@
             position: relative;
         }
 
+        .nav-link:hover{
+            color: #ffb48c;
+        }
+
         .nav-link::before {
             content: "";
             position: absolute;
@@ -121,40 +124,45 @@
       </style>
 </head>
 <body>
-    <div class="container" style="margin-top: 4rem;">
-        <header class="header">
-            <div class="row align-items-center">
-                <div class="col">
-                    <img src="../assets/images/NE-w.png"
-                        width="7%">
-                </div>
-                <div class="col">
-                    <nav class="navbar">
-                        <a href="#home" class="nav-link" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Montserrat', sans-serif;">Home</a>
-                        <a href="#about" class="nav-link" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Montserrat', sans-serif;">About</a>
-                        <a href="#services" class="nav-link" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Montserrat', sans-serif;">Services</a>
-                        <a href="#projects" class="nav-link" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Montserrat', sans-serif;">Projects</a>
-                        <a href="#contact" class="nav-link" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Montserrat', sans-serif;">Contact</a>
-                    </nav>
+    <div class="container">
+        <header style="position: fixed; top: 0; left: 0; right: 0; background-color: #2f2f2f; z-index: 1000; padding-bottom: 20px; padding-top: 30px;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <img src="../assets/images/NE-w.png" width="8%">
+                    </div>
+                    <div class="col">
+                        <nav class="navbar" style="font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 14px;">
+                            <a href="#home" class="nav-link">Home</a>
+                            <a href="#about" class="nav-link">About</a>
+                            <a href="#services" class="nav-link">Services</a>
+                            <a href="#projects" class="nav-link">Projects</a>
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </header>
-
-        <div class="row">
-            <div class="col-lg-6" style="margin-top: 12rem;">
-                <p style="color: white ; font-weight: 400; font-family: 'Montserrat', sans-serif; font-size: 30px; margin-bottom: 10px;">Hello, it's</p>
-                <p style="color: white; font-family: 'Montserrat', sans-serif; font-size: 55px; font-weight: 600; margin-top: -20px; color: #ffb48c;">Nathalie Enriquez.</p>
-                <p style="color: white; font-weight: 400; font-family: 'Montserrat', sans-serif; margin-top: -5px;">&nbsp;<span style="color: #ffb48c; font-weight: bold;">—</span> A creative graphic and UI/UX designer.</p>
-                <button onclick="downloadCV()" style="font-family: 'Montserrat', sans-serif; font-size: 12px; margin-left: 10px; margin-top: 50px; border: 1px solid #ffb48c; border-radius: 10px; background-color: #202020; color: #fff; padding: 10px; transition: background-color 0.3s, color 0.3s;" onmouseover="this.style.backgroundColor='#ffb48c'; this.style.color='white';" onmouseout="this.style.backgroundColor='#202020'; this.style.color='#fff';">Download CV</button>
-            </div>
-            <div class="col-lg-6">
-                <img src="../assets/images/11.png" class="img-fluid" alt="Nathalie Enriquez">
-            </div>
-        </div>
     </div> 
 
+    <section id="home"  style="padding: 4rem 0; padding-bottom: 0;"> 
+        <div class="container" style="margin-top: 1.5rem;">
+            <div class="row">
+                <div class="col-lg-6" style="margin-top: 12rem;">
+                    <p style="color: white ; font-weight: 400; font-family: 'Montserrat', sans-serif; font-size: 30px; margin-bottom: 10px;">Hello, it's</p>
+                    <p style="color: white; font-family: 'Montserrat', sans-serif; font-size: 55px; font-weight: 600; margin-top: -20px; color: #ffb48c;">Nathalie Enriquez.</p>
+                    <p style="color: white; font-weight: 400; font-family: 'Montserrat', sans-serif; margin-top: -5px;">&nbsp;<span style="color: #ffb48c; font-weight: bold;">—</span> A creative graphic and UI/UX designer.</p>
+                    <button onclick="downloadCV()" style="font-family: 'Montserrat', sans-serif; font-size: 12px; margin-left: 10px; margin-top: 50px; border: 1px solid #ffb48c; border-radius: 10px; background-color: #202020; color: #fff; padding: 10px; transition: background-color 0.3s, color 0.3s;" onmouseover="this.style.backgroundColor='#ffb48c'; this.style.color='white';" onmouseout="this.style.backgroundColor='#202020'; this.style.color='#fff';">Download CV</button>
+                </div>
+                <div class="col-lg-6">
+                    <img src="../assets/images/11.png" class="img-fluid" alt="Nathalie Enriquez">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="about" style="background-color: #202020; padding: 4rem 0;">
-        <div class="container">
+        <div class="container" style="margin-top: 4.5rem; margin-bottom: 4.5rem;">
             <div class="row">
                 <div class="col-lg-5">
                     <img src="../assets/images/111.png" class="sidebar-image" style="width: 350px; height: auto; border-radius: 10px;">
@@ -259,7 +267,7 @@
     </section>
 
     <section id="services" style="padding: 4rem 0;">
-        <div class="container">
+        <div class="container" style="margin-top: 3rem; margin-bottom: 3rem;">
             <div class="row">
                 <div class="col-md-12">
                     <p style="color: #ffb48c; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; font-size: 14px;">SERVICES</p>
@@ -286,7 +294,7 @@
     </section>
 
     <section id="projects" style="background-color: #202020; padding: 4rem 0;">
-        <div class="container">
+        <div class="container" style="margin-top: 4.5rem; margin-bottom: 4.5rem;">
             <div class="col-md-12">
                 <p style="color: #ffb48c; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; font-size: 14px;">PROJECTS</p>
                 <h1 style="color: white; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: center; margin-top: -14px;">Crafting Solutions, Amplifying Skills</h1>
@@ -349,7 +357,7 @@
     </section>
 
     <section id="contact" style="padding: 4rem 0;">
-        <div class="container">
+        <div class="container" style="margin-top: 2.5rem;">
                 <p style="color: #ffb48c; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: start; font-size: 14px;">CONTACT</p>
                 <h1 style="color: white; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: start; margin-top: -14px;">Ways to Get in Touch</h1>
                 <p style="color: white; font-family: 'Montserrat', sans-serif; text-align: start; padding-bottom: 3rem; font-size: 12px;">Connect with us effortlessly through various channels to discuss your needs or inquiries.<br>We're always here to assist you.</p>
@@ -421,7 +429,6 @@
             }
         });
 
-        // Function to toggle the visibility of sections
         function toggleSection(sectionId, event) {
             event.preventDefault();
             var sections = ['skills', 'affiliations', 'education'];
