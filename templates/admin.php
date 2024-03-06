@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
         
-        <title>Admin (Portfolio-NE)</title>
+        <title>MyAdmin</title>
 
         <style>
             body {
@@ -327,50 +327,87 @@
         <div class="description">
             <h4>Education</h4>
             <form id="educationForm">
-                <div class="row form-labels">
-                    <div class="col">
-                        <p>Education Level</p>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Select education level</option>
-                                <option value="1">Primary</option>
-                                <option value="2">Secondary</option>
-                                <option value="3">Tertiary</option>
-                            </select>
-                    </div>
-                    <div class="col">
-                        <p>School</p>
-                        <input type="text" class="form-control" placeholder="Enter school" name="education[]">
-                    </div>
-                    <div class="col">
-                        <p>Strand/Course</p>
-                        <input type="text" class="form-control" placeholder="Enter school" name="education[]">
-                    </div>
-                    <div class="col-2">
-                        <p>From</p>
-                        <input type="date" class="form-control" aria-label="Select year">
-                    </div>
-                    <div class="col-2">
-                        <p>To</p>
-                        <input type="date" class="form-control" aria-label="Select year">
-                    </div>
+            <div class="row form-labels">
+                <div class="col">
+                    <p>Education Level</p>
+                    <select id="educationLevel" class="form-select" onchange="toggleFields()" name="education[]">
+                        <option selected>Select education level</option>
+                        <option value="primary">Primary</option>
+                        <option value="secondary">Secondary</option>
+                        <option value="tertiary">Tertiary</option>
+                    </select>
                 </div>
-                <div id="additionalAffiliations"></div>
+                <div class="col" id="schoolField" style="display: none;">
+                    <p>School</p>
+                    <input type="text" class="form-control" placeholder="Enter school" name="education[]">
+                </div>
+                <div class="col" id="strandField" style="display: none;">
+                    <p>Strand</p>
+                    <select id="strand" class="form-select" onchange="toggleFields()" name="education[]">
+                        <option selected>Select strand</option>
+                        <option value="1">STEM (Science, Technology, Engineering, and Mathematics)</option>
+                        <option value="2">HUMSS (Humanities and Social Science)</option>
+                        <option value="3">ABM (Accountancy, Business and Management Strand)</option>
+                        <option value="4">GAS (General Academic Strand)</option>
+                    </select>
+                </div>
+                <div class="col" id="courseField" style="display: none;">
+                    <p>Course</p>
+                    <input type="text" class="form-control" placeholder="Enter course" name="education[]">
+                </div>
+                <div class="col-2" id="fromField" style="display: none;">
+                    <p>From</p>
+                    <input type="date" class="form-control" aria-label="Select year" name="education[]">
+                </div>
+                <div class="col-2" id="toField" style="display: none;">
+                    <p>To</p>
+                    <input type="date" class="form-control" aria-label="Select year" name="education[]">
+                </div>
+            </div>
+                <div id="additionalEducation"></div>
                 <div class="row form-labels">
                     <div class="col text-end">
-                        <button type="button" class="btn btn-save mt-3" onclick="addSkillField()">Add another</button>
+                        <button type="button" class="btn btn-save mt-3" onclick="addEducationField()">Add another</button>
                         <!-- <button type="submit" class="btn btn-success mt-3">Save</button> -->
                     </div>
                 </div>
             </form>
         </div>
+        <br>
     </section>
-    <br>
-    <br>
-    <br>
 </div>
 
     <section id="services">
         <h1 class="title">Services</h1>
+
+        <div class="description">
+            <div class="form-floating form-labels">
+                <div class="col">
+                    <p>Title</p>
+                    <input type="text" class="form-control" placeholder="Enter title" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>Description</p>
+                    <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <h4>Services</h4>
+            <div class="form-floating form-labels">
+                <div class="col">
+                    <p>Add Service</p>
+                    <input type="text" class="form-control" placeholder="Enter title" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>Description</p>
+                    <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="projects">
@@ -436,6 +473,79 @@
             </div>
         `;
         document.getElementById('additionalAffiliations').insertAdjacentHTML('beforeend', newAffiliationField);
+    }
+
+    function toggleFields() {
+        var educationLevel = document.getElementById('educationLevel').value;
+        var schoolField = document.getElementById('schoolField');
+        var strandField = document.getElementById('strandField');
+        var courseField = document.getElementById('courseField');
+        var fromField = document.getElementById('fromField');
+        var toField = document.getElementById('toField');
+
+        if (educationLevel === 'primary') {
+            schoolField.style.display = 'block';
+            strandField.style.display = 'none';
+            courseField.style.display = 'none';
+            fromField.style.display = 'block';
+            toField.style.display = 'block';
+        } else if (educationLevel === 'secondary') {
+            schoolField.style.display = 'block';
+            strandField.style.display = 'block';
+            courseField.style.display = 'none';
+            fromField.style.display = 'block';
+            toField.style.display = 'block';
+        } else if (educationLevel === 'tertiary') {
+            schoolField.style.display = 'block';
+            strandField.style.display = 'none';
+            courseField.style.display = 'block';
+            fromField.style.display = 'block';
+            toField.style.display = 'block';
+        }
+    }
+
+    function addEducationField() {
+        const educationCount = document.querySelectorAll('input[name^="education"]').length / 2 + 1;
+        const newEducationField = `
+            <br>
+            <div class="row form-labels">
+                <div class="col">
+                    <select id="educationLevel" class="form-select" onchange="toggleFields()" name="education[]">
+                        <option selected>Select education level</option>
+                        <option value="primary">Primary</option>
+                        <option value="secondary">Secondary</option>
+                        <option value="tertiary">Tertiary</option>
+                    </select>
+                </div>
+                <div class="col" id="schoolField" style="display: none;">
+                    <p>School</p>
+                    <input type="text" class="form-control" placeholder="Enter school" name="education[]">
+                </div>
+                <div class="col" id="strandField" style="display: none;">
+                    <p>Strand</p>
+                    <select id="strand" class="form-select" onchange="toggleFields()" name="education[]">
+                        <option selected>Select strand</option>
+                        <option value="1">STEM (Science, Technology, Engineering, and Mathematics)</option>
+                        <option value="2">HUMSS (Humanities and Social Science)</option>
+                        <option value="3">ABM (Accountancy, Business and Management Strand)</option>
+                        <option value="4">GAS (General Academic Strand)</option>
+                    </select>
+                </div>
+                <div class="col" id="courseField" style="display: none;">
+                    <p>Course</p>
+                    <input type="text" class="form-control" placeholder="Enter course" name="education[]">
+                </div>
+                <div class="col-2" id="fromField" style="display: none;">
+                    <p>From</p>
+                    <input type="date" class="form-control" aria-label="Select year" name="education[]">
+                </div>
+                <div class="col-2" id="toField" style="display: none;">
+                    <p>To</p>
+                    <input type="date" class="form-control" aria-label="Select year" name="education[]">
+                </div>
+            </div>
+        `;
+        document.getElementById('additionalEducation').insertAdjacentHTML('beforeend', newEducationField);
     }
     </script>
 
