@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
         
-        <title>MyAdmin</title>
+        <title>Admin</title>
 
         <style>
             body {
@@ -184,6 +184,12 @@
 
             }
 
+            /* .add {
+                color: #ffb48c; 
+                font-size: 20px;
+                cursor: pointer;
+            } */
+
             .logo-container {
                 display: flex; 
                 align-items: center; 
@@ -249,9 +255,9 @@
                 <div class="input-group mb-3 form-labels">
                     <input type="file" class="form-control" id="inputGroupFile02">
                 </div>
-                <br>
-                <div class="row justify-content-end">
+                <div class="row justify-content-end mt-3">
                     <div class="col-auto">
+                        <!-- <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button> -->
                         <button type="button" class="btn-save">Save</button>
                     </div>
                 </div>
@@ -266,6 +272,12 @@
                 <div class="col">
                     <p>Description</p>
                     <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                </div>
+            </div>
+            <div class="row justify-content-end mt-3">
+                <div class="col-auto">
+                    <!-- <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button> -->
+                    <button type="button" class="btn-save">Save</button>
                 </div>
             </div>
         </div>
@@ -284,10 +296,11 @@
                     </div>
                 </div>
                 <div id="additionalSkills"></div>
-                <div class="row form-labels">
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-save mt-3" onclick="addSkillField()">Add another</button>
-                        <!-- <button type="submit" class="btn btn-success mt-3">Save</button> -->
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addSkillField()">Add another</button>
+                        <!-- <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem;" onclick="addSkillField()"></i> -->
+                        <button type="button" class="btn-save">Save</button>
                     </div>
                 </div>
             </form>
@@ -315,10 +328,10 @@
                     </div>
                 </div>
                 <div id="additionalAffiliations"></div>
-                <div class="row form-labels">
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-save mt-3" onclick="addAffiliationField()">Add another</button>
-                        <!-- <button type="submit" class="btn btn-success mt-3">Save</button> -->
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addAffiliationField()">Add another</button>
+                        <button type="button" class="btn-save">Save</button>
                     </div>
                 </div>
             </form>
@@ -365,10 +378,10 @@
                 </div>
             </div>
                 <div id="additionalEducation"></div>
-                <div class="row form-labels">
-                    <div class="col text-end">
-                        <button type="button" class="btn btn-save mt-3" onclick="addEducationField()">Add another</button>
-                        <!-- <button type="submit" class="btn btn-success mt-3">Save</button> -->
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addEducationField()">Add another</button>
+                        <button type="button" class="btn-save">Save</button>
                     </div>
                 </div>
             </form>
@@ -396,9 +409,36 @@
 
         <div class="description">
             <h4>Services</h4>
+            <form id="serviceForm">
+                <div class="row form-labels">
+                    <div class="col">
+                        <p>Service Category</p>
+                        <input type="text" class="form-control" placeholder="Enter service category" aria-label="Skill category" name="service[]">
+                    </div>
+                    <div class="col">
+                        <p>Service Description</p>
+                        <input type="text" class="form-control" placeholder="Enter service description" aria-label="Skill description" name="service[]">
+                    </div>
+                </div>
+                <div id="additionalService"></div>
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addServiceField()">Add another</button>
+                        <button type="button" class="btn-save">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br>
+    </section>
+
+    <section id="projects">
+        <h1 class="title">Projects</h1>
+        
+        <div class="description">
             <div class="form-floating form-labels">
                 <div class="col">
-                    <p>Add Service</p>
+                    <p>Title</p>
                     <input type="text" class="form-control" placeholder="Enter title" aria-label="title">
                 </div>
                 <br>
@@ -408,14 +448,83 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="projects">
-        <h1 class="title">Projects</h1>
+        <div class="description">
+            <h4>Projects</h4>
+            <div class="form-floating form-labels">
+                <div class="col">
+                    <p>Project Category</p>
+                    <input type="text" class="form-control" placeholder="Enter project category" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>Project Link</p>
+                    <input type="text" class="form-control" placeholder="Enter project link" aria-label="title">
+                </div>
+            </div>
+        </div>
+        <br>
     </section>
 
     <section id="contact">
         <h1 class="title">Contact</h1>
+        
+        <div class="description">
+            <div class="form-floating form-labels">
+                <div class="col">
+                    <p>Title</p>
+                    <input type="text" class="form-control" placeholder="Enter title" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>Description</p>
+                    <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <h4>Contact Information</h4>
+
+            <div class="form-floating form-labels">
+                <div class="col">
+                    <p>Address</p>
+                    <input type="text" class="form-control" placeholder="Enter address" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>Contact Number</p>
+                    <input type="text" class="form-control" placeholder="Enter contact number" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>Email Address</p>
+                    <input type="text" class="form-control" placeholder="Enter email address" aria-label="title">
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <h4>Social Media Links</h4>
+            
+            <div class="form-floating form-labels">
+                <div class="col">
+                    <p>Facebook</p>
+                    <input type="text" class="form-control" placeholder="Enter link" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>LinkedIn</p>
+                    <input type="text" class="form-control" placeholder="Enter link" aria-label="title">
+                </div>
+                <br>
+                <div class="col">
+                    <p>Behance</p>
+                    <input type="text" class="form-control" placeholder="Enter link" aria-label="title">
+                </div>
+            </div>
+        </div>
+        <br>
     </section>
 </div>
 
@@ -546,6 +655,22 @@
             </div>
         `;
         document.getElementById('additionalEducation').insertAdjacentHTML('beforeend', newEducationField);
+    }
+
+    function addServiceField() {
+        const serviceCount = document.querySelectorAll('input[name^="service"]').length / 2 + 1;
+        const newServiceField = `
+            <br>
+            <div class="row form-labels">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter service category" aria-label="Skill category" name="service[]">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Enter service description" aria-label="Skill description" name="service[]">
+                </div>
+            </div>
+        `;
+        document.getElementById('additionalService').insertAdjacentHTML('beforeend', newServiceField);
     }
     </script>
 
