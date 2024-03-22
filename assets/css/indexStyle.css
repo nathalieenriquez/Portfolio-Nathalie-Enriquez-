@@ -1,0 +1,88 @@
+.navbar a {
+    color: white;
+    position: relative;
+    transition: color 0.3s;
+    padding-bottom: 5px;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffb48c;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.top-up {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+    background-color: #2f2f2f;
+    color: #ffb48c;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    transition: opacity 0.3s;
+}
+
+.top-up.show {
+    display: block;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link:hover{
+    color: #ffb48c;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffb48c;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.graphic:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #ffb48c;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.ui-ux:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #ffb48c;
+    border-radius: 10px;
+    pointer-events: none;
+}

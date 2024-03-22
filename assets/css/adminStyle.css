@@ -1,0 +1,259 @@
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ba5036;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.sidenav a {
+  padding: 12px 15px;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.sidenav a:hover {
+  background-color: #cc8c6a;
+}
+
+.sidenav .active {
+  background-color: #cc8c6a;
+  margin-bottom: 10px;
+}
+
+.link-text {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+}
+
+.logo-container img {
+  width: 20px;
+  height: auto;
+}
+
+.logo-name {
+  font-size: 18px;
+  color: white;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.description {
+  align-items: center;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-color: #ba5036;
+}
+
+.containers {
+  height: 270px;
+  position: relative;
+  max-width: 320px;
+  margin: auto;
+}
+
+.containers .imageWrapper {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  width: 70%;
+  padding-bottom: 70%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.containers .imageWrapper img {
+  height: 105%;
+  width: initial;
+  max-height: 100%;
+  max-width: initial;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.file-upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.file-upload {
+  background-color: #ffb48c;
+  margin: 10px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.file-upload input.file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.btn-save {
+  background-color: #ffb48c;
+  border-color: #ba5036;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+.btn-save:hover {
+  background-color: transparent;
+  border-color: #ba5036;
+  color: #2f2f2f;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.logo-name {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #ba5036;
+}
+
+.form-labels {
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-control {
+  outline: none;
+}
+
+.form-control:focus {
+  border-color: #ba5036;
+  box-shadow: 0 0 0 #ba5036;
+}
+
+.form-select {
+  outline: none;
+}
+
+.form-select:focus {
+  border-color: #ba5036;
+  box-shadow: 0 0 0 #ba5036;
+}
+
+.category-subtitle {
+  color: #ba5036;
+}
+
+.imageWrapper {
+  width: 170px;
+  height: 170px;
+  border: 2px solid #ba5036;
+  border-radius: 10%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.file-upload {
+  background-color: #ffb48c;
+  border-color: #ba5036;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: black;
+}
+
+.file-upload:hover {
+  background-color: transparent;
+  border-color: #ba5036;
+  color: #2f2f2f;
+  cursor: pointer;
+}
+
+.file-input {
+  background-color: #ffb48c;
+  border-color: #ba5036;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: black;
+}
+
+.add-button-wrapper {
+  margin-left: auto;
+}
+

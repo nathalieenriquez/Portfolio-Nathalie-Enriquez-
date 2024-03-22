@@ -1,5 +1,5 @@
     <?php
-        require_once "../functions/upload.php"; 
+        require_once "../functions/update_home.php"; 
     ?>
 
     <!DOCTYPE html>
@@ -11,7 +11,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.0/css/boxicons.min.css">
-        
+        <link rel="stylesheet" href="../assets/css/adminStyle.css">
+
         <title>Admin</title>
 
         <style>
@@ -23,267 +24,109 @@
                 box-sizing: border-box;
             }
 
-            .sidenav {
-                height: 100%;
-                width: 250px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                background-color: #ba5036;
-                padding-top: 20px; 
-                padding-left: 20px;
-                padding-right: 20px;
-                box-sizing: border-box;
+            ::-webkit-scrollbar {
+                width: 5px;
             }
 
-            .sidenav a {
-                padding: 12px 15px;
-                text-decoration: none;
-                font-size: 13px;
-                font-family: 'Montserrat', sans-serif;
-                color: white;
-                display: block;
+            ::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 5px grey;
                 border-radius: 10px;
-                margin-bottom: 10px;
             }
 
-            .sidenav a:hover {
-                background-color: #cc8c6a; 
-            }
-
-            .sidenav .active {
-                background-color: #cc8c6a; 
-                margin-bottom: 10px;
-            }
-            
-            .link-text {
-                margin-left: 10px; 
-                display: inline-block; 
-            }
-
-            .logo-container {
-                display: flex;
-                align-items: center;
-                padding: 9px;
-            }
-
-            .logo-container img {
-                width: 20px; 
-                height: auto;
-            }
-
-            .logo-name {
-                font-size: 18px;
-                color: white;
-            }
-
-            .section {
-                display: none;
-            }
-
-            .section.active {
-                display: block;
-            }
-
-            .description {
-                align-items: center;
-                padding: 20px;
-                border: 1px solid rgba(0, 0, 0, 0.4);
+            ::-webkit-scrollbar-thumb {
+                background: #ba5036;
                 border-radius: 10px;
-                width: 100%;
-                margin: 0 auto;
-                margin-top: 20px;
-                border-color: #ba5036;
-
-            }
-
-            .containers {
-                height: 270px;
-                position: relative;
-                max-width: 320px;
-                margin: auto;
-            }
-
-            .containers .imageWrapper {
-                border: 1px solid rgba(0, 0, 0, 0.4);
-                width: 70%;
-                padding-bottom: 70%;
-                border-radius: 50%;
-                overflow: hidden;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .containers .imageWrapper img {
-                height: 105%;
-                width: initial;
-                max-height: 100%;
-                max-width: initial;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .file-upload-container { 
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                font-family: 'Montserrat', sans-serif;
-            }
-
-            .file-upload {
-                background-color: #ffb48c;
-                margin: 10px;
-                text-align:center;
-                font-size:14px;
-                border: 1px solid rgba(0, 0, 0, 0.4);
-                padding: 10px;
-                border-radius: 10px;
-                display:flex;
-                align-items: center;
-                justify-content: center;
-                font-family: 'Montserrat', sans-serif;
-                transition: all 0.2s ease;
-
-                &:hover{
-                    background: transparent;
-                }
-            }
-
-            .file-upload input.file-input {
-                position: absolute;
-                top: 0;
-                right: 0;
-                margin: 0;
-                padding: 0;
-                font-size: 20px;
-                cursor: pointer;
-                opacity: 0;
-                filter: alpha(opacity=0);
-            }
-
-            .btn-save {
-                background-color: #ffb48c;
-                border-color: #ba5036;
-                border-radius: 10px;
-                padding-left: 20px;
-                padding-right: 20px;
-                padding-top: 8px;
-                padding-bottom: 8px;
-                color: black;
-            }
-
-            .btn-save:hover {
-                background-color: transparent;
-                border-color: #ba5036;
-                color: #2f2f2f;
-
-            }
-
-            /* .add {
-                color: #ffb48c; 
-                font-size: 20px;
-                cursor: pointer;
-            } */
-
-            .logo-container {
-                display: flex; 
-                align-items: center; 
-                margin-bottom: 20px; 
-                margin-top: 20px;
-            }
-
-            .logo-name {
-                font-size: 16px; 
-                font-family: 'Montserrat', 
-                sans-serif; font-weight: 500;
-            }
-
-            .title {
-                font-family: 'Montserrat', sans-serif; 
-                font-weight: 600; 
-                color: #ba5036;
-            }
-            
-            .form-labels {
-                font-family: 'Montserrat', sans-serif;
             }
         </style>
     </head>
     <body>
     <div class="sidenav">
-    <div class="logo-container">
-        <img src="../assets/images/NE-w.png" style="width: 35px; height: auto; margin-right: 4px;">
-        <span class="logo-name">ADMIN PANEL</span>
+        <div class="logo-container">
+            <img src="../assets/images/NE-w.png" style="width: 35px; height: auto; margin-right: 4px;">
+            <span class="logo-name">ADMIN PANEL</span>
+        </div>
+            <a href="#home" class="active" onclick="changeSection('home')"><i class="fa-solid fa-house" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Home</span></a>
+            <a href="#about" onclick="changeSection('about')"><i class="fa-solid fa-user" style="font-size: 15px; width: 20px;"></i> <span class="link-text">About</span></a>
+            <a href="#services" onclick="changeSection('services')"><i class="fa-solid fa-wrench" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Services</span></a>
+            <a href="#projects" onclick="changeSection('projects')"><i class="fa-solid fa-box" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Projects</span></a>
+            <a href="#contact" onclick="changeSection('contact')"><i class="fa-solid fa-address-card" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Contact</span></a>
+        <div style="margin-top: 14rem;">
+            <a href="../templates/index.php" onclick="changeSection('portfolio')"><i class="fa-solid fa-file" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Portfolio</span></a>
+        </div>
     </div>
-    <a href="#home" class="active" onclick="changeSection('home')"><i class="fa-solid fa-user" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Home</span></a>
-    <a href="#about" onclick="changeSection('about')"><i class="fa-solid fa-user" style="font-size: 15px; width: 20px;"></i> <span class="link-text">About</span></a>
-    <a href="#services" onclick="changeSection('services')"><i class="fa-solid fa-wrench" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Services</span></a>
-    <a href="#projects" onclick="changeSection('projects')"><i class="fa-solid fa-box" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Projects</span></a>
-    <a href="#contact" onclick="changeSection('contact')"><i class="fa-solid fa-address-card" style="font-size: 15px; width: 20px;"></i> <span class="link-text">Contact</span></a>
-</div>
 
 <div class="container">
-    <section id="home">
+    <form action="" method="POST">
+            <section id="home">
         <h1 class="title">Home</h1>
-        <div class="row">
             <div class="description">
                 <div class="row form-labels">
                     <div class="col">
                         <p>First Name</p>
-                        <input type="text" class="form-control" placeholder="Enter first name" aria-label="First name">
+                        <input type="text" class="form-control" placeholder="Enter first name" aria-label="First name" readonly>
                     </div>
                     <div class="col">
                         <p>Last Name</p>
-                        <input type="text" class="form-control" placeholder="Enter last name" aria-label="Last name">
+                        <input type="text" class="form-control" placeholder="Enter last name" aria-label="Last name" readonly>
                     </div>
                 </div>
                 <br>
                 <div class="form-floating form-labels">
                     <div class="col">
                         <p>Description</p>
-                        <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                        <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description" readonly></textarea>
                     </div>
                 </div>
                 <br>
                 <br>
                 <p class="form-labels">Upload CV</p>
                 <div class="input-group mb-3 form-labels">
-                    <input type="file" class="form-control" id="inputGroupFile02">
+                    <input type="file" class="form-control" id="inputGroupFile02" disabled>
                 </div>
                 <div class="row justify-content-end mt-3">
                     <div class="col-auto">
-                        <!-- <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button> -->
-                        <button type="button" class="btn-save">Save</button>
+                        <button type="button" class="btn-save edit-btn" style="margin-right: .5rem">Edit</button>
+                        <button type="button" class="btn-save save-btn">Save</button>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
+    </form>
 
     <section id="about">
         <h1 class="title">About Me</h1>
         <div class="description">
-            <div class="form-floating form-labels">
+            <div class="row form-labels">
+                <div class="col-2" style="display: flex; flex-direction: column; align-items: center; text-align: center; ">
+                    <div class="imageWrapper">
+                        <img class="image" src="../assets/images/default_profile.png">
+                    </div>
+                    <label for="file-upload" class="file-upload">Choose File
+                        <input type="file" id="file-upload" class="file-input">
+                    </label>
+                </div>
                 <div class="col">
                     <p>Description</p>
-                    <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                    <textarea name="text" class="form-control" rows="8" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
                 </div>
             </div>
             <div class="row justify-content-end mt-3">
                 <div class="col-auto">
-                    <!-- <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button> -->
+                    <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
                     <button type="button" class="btn-save">Save</button>
                 </div>
             </div>
         </div>
         
         <div class="description">
-            <h4>Skills</h4>
+            <div class="row form-labels">
+                <div class="col">
+                    <h4 style="font-weight: 600; color: #ba5036">Skills</h4>
+                </div>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addSkillField()"></i>
+                </div>
+            </div>
             <form id="skillsForm">
                 <div class="row form-labels">
                     <div class="col">
@@ -297,17 +140,26 @@
                 </div>
                 <div id="additionalSkills"></div>
                 <div class="row justify-content-end mt-3 form-labels">
-                    <div class="col-auto">
-                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addSkillField()">Add another</button>
-                        <!-- <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem;" onclick="addSkillField()"></i> -->
+                    <div class="col-auto d-flex align-items-center">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
                         <button type="button" class="btn-save">Save</button>
+                        <div>
+                            <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
 
         <div class="description">
-            <h4>Affiliations</h4>
+            <div class="row form-labels">
+                <div class="col">
+                    <h4 style="font-weight: 600; color: #ba5036">Affiliations</h4>
+                </div>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addAffiliationField()"></i>
+                </div>
+            </div>
             <form id="affiliationsForm">
                 <div class="row form-labels">
                     <div class="col">
@@ -329,16 +181,26 @@
                 </div>
                 <div id="additionalAffiliations"></div>
                 <div class="row justify-content-end mt-3 form-labels">
-                    <div class="col-auto">
-                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addAffiliationField()">Add another</button>
+                    <div class="col-auto d-flex align-items-center">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
                         <button type="button" class="btn-save">Save</button>
+                        <div>
+                            <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
 
         <div class="description">
-            <h4>Education</h4>
+            <div class="row form-labels">
+                <div class="col">
+                    <h4 style="font-weight: 600; color: #ba5036">Education</h4>
+                </div>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addEducationField()"></i>
+                </div>
+            </div>
             <form id="educationForm">
             <div class="row form-labels">
                 <div class="col">
@@ -379,16 +241,18 @@
             </div>
                 <div id="additionalEducation"></div>
                 <div class="row justify-content-end mt-3 form-labels">
-                    <div class="col-auto">
-                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addEducationField()">Add another</button>
+                    <div class="col-auto d-flex align-items-center">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
                         <button type="button" class="btn-save">Save</button>
+                        <div>
+                            <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
         <br>
     </section>
-</div>
 
     <section id="services">
         <h1 class="title">Services</h1>
@@ -404,27 +268,50 @@
                     <p>Description</p>
                     <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
                 </div>
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
+                        <button type="button" class="btn-save">Save</button>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="description">
-            <h4>Services</h4>
+            <div class="row form-labels">
+                <div class="col">
+                    <h4 style="font-weight: 600; color: #ba5036">Services</h4>
+                </div>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addServiceField()"></i>
+                </div>
+            </div>
             <form id="serviceForm">
                 <div class="row form-labels">
+                    <div class="col-2" style="display: flex; flex-direction: column; align-items: center; text-align: center; ">
+                        <div class="imageWrapper">
+                            <img class="image" src="../assets/images/default_profile.png">
+                        </div>
+                        <label for="file-upload" class="file-upload">Choose File
+                            <input type="file" id="file-upload" class="file-input">
+                        </label>
+                    </div>
                     <div class="col">
                         <p>Service Category</p>
                         <input type="text" class="form-control" placeholder="Enter service category" aria-label="Skill category" name="service[]">
-                    </div>
-                    <div class="col">
+                        <br>
                         <p>Service Description</p>
                         <input type="text" class="form-control" placeholder="Enter service description" aria-label="Skill description" name="service[]">
                     </div>
                 </div>
                 <div id="additionalService"></div>
                 <div class="row justify-content-end mt-3 form-labels">
-                    <div class="col-auto">
-                        <button type="button" class="btn-save" style="margin-right: .5rem" onclick="addServiceField()">Add another</button>
+                    <div class="col-auto d-flex align-items-center">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
                         <button type="button" class="btn-save">Save</button>
+                        <div>
+                            <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -434,7 +321,6 @@
 
     <section id="projects">
         <h1 class="title">Projects</h1>
-        
         <div class="description">
             <div class="form-floating form-labels">
                 <div class="col">
@@ -446,11 +332,24 @@
                     <p>Description</p>
                     <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
                 </div>
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
+                        <button type="button" class="btn-save">Save</button>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="description">
-            <h4>Projects</h4>
+            <div class="row form-labels">
+                <div class="col">
+                    <h4 style="font-weight: 600; color: #ba5036">Projects</h4>
+                </div>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addServiceField()"></i>
+                </div>
+            </div>  
             <div class="form-floating form-labels">
                 <div class="col">
                     <p>Project Category</p>
@@ -461,6 +360,15 @@
                     <p>Project Link</p>
                     <input type="text" class="form-control" placeholder="Enter project link" aria-label="title">
                 </div>
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto d-flex align-items-center">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
+                        <button type="button" class="btn-save">Save</button>
+                        <div>
+                            <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <br>
@@ -469,60 +377,78 @@
     <section id="contact">
         <h1 class="title">Contact</h1>
         
-        <div class="description">
+        <form class="description" action="../functions/update_contact.php" method="post">
             <div class="form-floating form-labels">
                 <div class="col">
                     <p>Title</p>
-                    <input type="text" class="form-control" placeholder="Enter title" aria-label="title">
+                    <input type="text" class="form-control" name="title" placeholder="Enter title" aria-label="title">
                 </div>
                 <br>
                 <div class="col">
                     <p>Description</p>
-                    <textarea name="text" class="form-control" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                    <textarea class="form-control" name="contact_description" rows="3" style="width: 100%;" placeholder="Enter description" aria-label="Description"></textarea>
+                </div>
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save edit-btn" style="margin-right: .5rem">Edit</button>
+                        <button type="submit" class="btn-save">Save</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
 
         <div class="description">
-            <h4>Contact Information</h4>
+            <h4 class="category-subtitle">Contact Information</h4>
 
-            <div class="form-floating form-labels">
+            <form class="form-floating form-labels" action="../functions/update_contact.php" method="post">
                 <div class="col">
                     <p>Address</p>
-                    <input type="text" class="form-control" placeholder="Enter address" aria-label="title">
+                    <input type="text" class="form-control" name="address" placeholder="Enter address" aria-label="title">
                 </div>
                 <br>
                 <div class="col">
                     <p>Contact Number</p>
-                    <input type="text" class="form-control" placeholder="Enter contact number" aria-label="title">
+                    <input type="text" class="form-control" name="contact_number" placeholder="Enter contact number" aria-label="title">
                 </div>
                 <br>
                 <div class="col">
                     <p>Email Address</p>
-                    <input type="text" class="form-control" placeholder="Enter email address" aria-label="title">
+                    <input type="email" class="form-control" name="email" placeholder="Enter email address" aria-label="title">
                 </div>
-            </div>
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
+                        <button type="submit" class="btn-save">Save</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
         <div class="description">
-            <h4>Social Media Links</h4>
+            <h4 class="category-subtitle">Social Media Links</h4>
             
-            <div class="form-floating form-labels">
+            <form class="form-floating form-labels" action="../functions/update_contact.php" method="post">
                 <div class="col">
                     <p>Facebook</p>
-                    <input type="text" class="form-control" placeholder="Enter link" aria-label="title">
+                    <input type="text" class="form-control" name="facebook" placeholder="Enter link" aria-label="title">
                 </div>
                 <br>
                 <div class="col">
                     <p>LinkedIn</p>
-                    <input type="text" class="form-control" placeholder="Enter link" aria-label="title">
+                    <input type="text" class="form-control" name="linkedIn" placeholder="Enter link" aria-label="title">
                 </div>
                 <br>
                 <div class="col">
                     <p>Behance</p>
-                    <input type="text" class="form-control" placeholder="Enter link" aria-label="title">
+                    <input type="text" class="form-control" name="behance" placeholder="Enter link" aria-label="title">
                 </div>
-            </div>
+                <div class="row justify-content-end mt-3 form-labels">
+                    <div class="col-auto">
+                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
+                        <button type="submit" class="btn-save">Save</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <br>
     </section>
@@ -531,147 +457,243 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $('section').not('#home').hide();
-    });
-
-    function changeSection(sectionId) {
-        $('.sidenav a').removeClass('active');
-        $('.sidenav a[href="#' + sectionId + '"]').addClass('active');
-        $('section').hide();
-        $('#' + sectionId).show();
-    }
-
-    function addSkillField() {
-        const skillCount = document.querySelectorAll('input[name^="skills"]').length / 2 + 1;
-        const newSkillField = `
-            <br>
-            <div class="row form-labels">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Enter skill category" aria-label="Skill category ${skillCount}" name="skills[]">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Enter skill description" aria-label="Skill description ${skillCount}" name="skills[]">
-                </div>
-            </div>
-        `;
-        document.getElementById('additionalSkills').insertAdjacentHTML('beforeend', newSkillField);
-    }
-
-    function addAffiliationField() {
-        const affiliationCount = document.querySelectorAll('input[name^="affiliations"]').length / 2 + 1;
-        const newAffiliationField = `
-            <br>
-            <div class="row form-labels">
-                <div class="col">
-                    <p>Organization/Institution</p>
-                    <input type="text" class="form-control" placeholder="Enter organization/institution" ${affiliationCount} name="affiliations[]">
-                </div>
-                <div class="col">
-                    <p>Position</p>
-                    <input type="text" class="form-control" placeholder="Enter position" ${affiliationCount} name="affiliations[]">
-                </div>
-                <div class="col-2">
-                    <p>From</p>
-                    <input type="date" class="form-control" aria-label="Select year" ${affiliationCount}>
-                </div>
-                <div class="col-2">
-                    <p>To</p>
-                    <input type="date" class="form-control" aria-label="Select year" ${affiliationCount}>
-                </div>
-            </div>
-        `;
-        document.getElementById('additionalAffiliations').insertAdjacentHTML('beforeend', newAffiliationField);
-    }
-
-    function toggleFields() {
-        var educationLevel = document.getElementById('educationLevel').value;
-        var schoolField = document.getElementById('schoolField');
-        var strandField = document.getElementById('strandField');
-        var courseField = document.getElementById('courseField');
-        var fromField = document.getElementById('fromField');
-        var toField = document.getElementById('toField');
-
-        if (educationLevel === 'primary') {
-            schoolField.style.display = 'block';
-            strandField.style.display = 'none';
-            courseField.style.display = 'none';
-            fromField.style.display = 'block';
-            toField.style.display = 'block';
-        } else if (educationLevel === 'secondary') {
-            schoolField.style.display = 'block';
-            strandField.style.display = 'block';
-            courseField.style.display = 'none';
-            fromField.style.display = 'block';
-            toField.style.display = 'block';
-        } else if (educationLevel === 'tertiary') {
-            schoolField.style.display = 'block';
-            strandField.style.display = 'none';
-            courseField.style.display = 'block';
-            fromField.style.display = 'block';
-            toField.style.display = 'block';
+        //sidenav
+        function changeSection(sectionId) {
+            var sidenavLinks = document.querySelectorAll('.sidenav a');
+            sidenavLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            
+            var activeLink = document.querySelector('.sidenav a[href="#' + sectionId + '"]');
+            activeLink.classList.add('active');
+            
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            
+            var targetSection = document.getElementById(sectionId);
+            targetSection.style.display = 'block';
         }
-    }
 
-    function addEducationField() {
-        const educationCount = document.querySelectorAll('input[name^="education"]').length / 2 + 1;
-        const newEducationField = `
-            <br>
-            <div class="row form-labels">
-                <div class="col">
-                    <select id="educationLevel" class="form-select" onchange="toggleFields()" name="education[]">
-                        <option selected>Select education level</option>
-                        <option value="primary">Primary</option>
-                        <option value="secondary">Secondary</option>
-                        <option value="tertiary">Tertiary</option>
-                    </select>
-                </div>
-                <div class="col" id="schoolField" style="display: none;">
-                    <p>School</p>
-                    <input type="text" class="form-control" placeholder="Enter school" name="education[]">
-                </div>
-                <div class="col" id="strandField" style="display: none;">
-                    <p>Strand</p>
-                    <select id="strand" class="form-select" onchange="toggleFields()" name="education[]">
-                        <option selected>Select strand</option>
-                        <option value="1">STEM (Science, Technology, Engineering, and Mathematics)</option>
-                        <option value="2">HUMSS (Humanities and Social Science)</option>
-                        <option value="3">ABM (Accountancy, Business and Management Strand)</option>
-                        <option value="4">GAS (General Academic Strand)</option>
-                    </select>
-                </div>
-                <div class="col" id="courseField" style="display: none;">
-                    <p>Course</p>
-                    <input type="text" class="form-control" placeholder="Enter course" name="education[]">
-                </div>
-                <div class="col-2" id="fromField" style="display: none;">
-                    <p>From</p>
-                    <input type="date" class="form-control" aria-label="Select year" name="education[]">
-                </div>
-                <div class="col-2" id="toField" style="display: none;">
-                    <p>To</p>
-                    <input type="date" class="form-control" aria-label="Select year" name="education[]">
-                </div>
-            </div>
-        `;
-        document.getElementById('additionalEducation').insertAdjacentHTML('beforeend', newEducationField);
-    }
+        //hide nonehome
+        document.addEventListener('DOMContentLoaded', function() {
+            var sections = document.querySelectorAll('section:not(#home)');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+        });
 
-    function addServiceField() {
-        const serviceCount = document.querySelectorAll('input[name^="service"]').length / 2 + 1;
-        const newServiceField = `
-            <br>
-            <div class="row form-labels">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Enter service category" aria-label="Skill category" name="service[]">
+        //home - edit
+        document.addEventListener('DOMContentLoaded', function() {
+            const editButton = document.querySelector('.edit-btn');
+            const saveButton = document.querySelector('.save-btn');
+            const formControls = document.querySelectorAll('.form-control');
+            const fileInput = document.getElementById('inputGroupFile02');
+
+            function makeEditable() {
+                formControls.forEach(control => {
+                    control.removeAttribute('readonly');
+                    control.style.backgroundColor = 'white';
+                });
+                saveButton.disabled = false;
+                editButton.disabled = true;
+                fileInput.disabled = false;
+            }
+
+            function makeUneditable() {
+                formControls.forEach(control => {
+                    control.setAttribute('readonly', true);
+                    control.style.backgroundColor = 'white'; 
+                });
+                saveButton.disabled = true;
+                editButton.disabled = false;
+                fileInput.disabled = true;
+            }
+
+            function saveData() {
+                const first_name = document.querySelector('input[aria-label="First name"]').value;
+                const last_name = document.querySelector('input[aria-label="Last name"]').value;
+                const description = document.querySelector('textarea[aria-label="Description"]').value;
+
+                const formData = new FormData();
+                formData.append('first_name', first_name);
+                formData.append('last_name', last_name);
+                formData.append('description', description);
+                
+                //AJAX - send data to server
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '../functions/update_home.php', true);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        alert(xhr.responseText);
+                        makeUneditable();
+                    }
+                };
+                xhr.send(formData);
+            }
+        
+            editButton.addEventListener('click', makeEditable);
+            saveButton.addEventListener('click', saveData);
+        });
+
+        //about me - add photo
+        document.querySelectorAll('.file-input').forEach(function(input) {
+            input.addEventListener('change', function() {
+                var curElement = this.parentNode.parentNode.querySelector('.image');
+                var file = this.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    curElement.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            });
+        });
+
+        //about me - add
+        function addSkillField() {
+            const skillCount = document.querySelectorAll('input[name^="skills"]').length / 2 + 1;
+            const newSkillField = `
+                <br>
+                <div class="row form-labels">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter skill category" aria-label="Skill category ${skillCount}" name="skills[]">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter skill description" aria-label="Skill description ${skillCount}" name="skills[]">
+                    </div>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Enter service description" aria-label="Skill description" name="service[]">
+            `;
+            document.getElementById('additionalSkills').insertAdjacentHTML('beforeend', newSkillField);
+        }
+
+        function addAffiliationField() {
+            const affiliationCount = document.querySelectorAll('input[name^="affiliations"]').length / 2 + 1;
+            const newAffiliationField = `
+                <br>
+                <div class="row form-labels">
+                    <div class="col">
+                        <p>Organization/Institution</p>
+                        <input type="text" class="form-control" placeholder="Enter organization/institution" ${affiliationCount} name="affiliations[]">
+                    </div>
+                    <div class="col">
+                        <p>Position</p>
+                        <input type="text" class="form-control" placeholder="Enter position" ${affiliationCount} name="affiliations[]">
+                    </div>
+                    <div class="col-2">
+                        <p>From</p>
+                        <input type="date" class="form-control" aria-label="Select year" ${affiliationCount}>
+                    </div>
+                    <div class="col-2">
+                        <p>To</p>
+                        <input type="date" class="form-control" aria-label="Select year" ${affiliationCount}>
+                    </div>
                 </div>
-            </div>
-        `;
-        document.getElementById('additionalService').insertAdjacentHTML('beforeend', newServiceField);
-    }
+            `;
+            document.getElementById('additionalAffiliations').insertAdjacentHTML('beforeend', newAffiliationField);
+        }
+
+        function toggleFields() {
+            var educationLevel = document.getElementById('educationLevel').value;
+            var schoolField = document.getElementById('schoolField');
+            var strandField = document.getElementById('strandField');
+            var courseField = document.getElementById('courseField');
+            var fromField = document.getElementById('fromField');
+            var toField = document.getElementById('toField');
+
+            if (educationLevel === 'primary') {
+                schoolField.style.display = 'block';
+                strandField.style.display = 'none';
+                courseField.style.display = 'none';
+                fromField.style.display = 'block';
+                toField.style.display = 'block';
+            } else if (educationLevel === 'secondary') {
+                schoolField.style.display = 'block';
+                strandField.style.display = 'block';
+                courseField.style.display = 'none';
+                fromField.style.display = 'block';
+                toField.style.display = 'block';
+            } else if (educationLevel === 'tertiary') {
+                schoolField.style.display = 'block';
+                strandField.style.display = 'none';
+                courseField.style.display = 'block';
+                fromField.style.display = 'block';
+                toField.style.display = 'block';
+            }
+        }
+
+        function addEducationField() {
+            const educationCount = document.querySelectorAll('input[name^="education"]').length / 2 + 1;
+            const newEducationField = `
+                <br>
+                <div class="row form-labels">
+                    <div class="col">
+                        <select id="educationLevel" class="form-select" onchange="toggleFields()" name="education[]">
+                            <option selected>Select education level</option>
+                            <option value="primary">Primary</option>
+                            <option value="secondary">Secondary</option>
+                            <option value="tertiary">Tertiary</option>
+                        </select>
+                    </div>
+                    <div class="col" id="schoolField" style="display: none;">
+                        <p>School</p>
+                        <input type="text" class="form-control" placeholder="Enter school" name="education[]">
+                    </div>
+                    <div class="col" id="strandField" style="display: none;">
+                        <p>Strand</p>
+                        <select id="strand" class="form-select" onchange="toggleFields()" name="education[]">
+                            <option selected>Select strand</option>
+                            <option value="1">STEM (Science, Technology, Engineering, and Mathematics)</option>
+                            <option value="2">HUMSS (Humanities and Social Science)</option>
+                            <option value="3">ABM (Accountancy, Business and Management Strand)</option>
+                            <option value="4">GAS (General Academic Strand)</option>
+                        </select>
+                    </div>
+                    <div class="col" id="courseField" style="display: none;">
+                        <p>Course</p>
+                        <input type="text" class="form-control" placeholder="Enter course" name="education[]">
+                    </div>
+                    <div class="col-2" id="fromField" style="display: none;">
+                        <p>From</p>
+                        <input type="date" class="form-control" aria-label="Select year" name="education[]">
+                    </div>
+                    <div class="col-2" id="toField" style="display: none;">
+                        <p>To</p>
+                        <input type="date" class="form-control" aria-label="Select year" name="education[]">
+                    </div>
+                </div>
+            `;
+            document.getElementById('additionalEducation').insertAdjacentHTML('beforeend', newEducationField);
+        }
+
+        //services - add
+        function addServiceField() {
+            const serviceCount = document.querySelectorAll('input[name^="service"]').length / 2 + 1;
+            const newServiceField = `
+                <br>
+                <div class="row form-labels">
+                    <div class="col-2" style="display: flex; flex-direction: column; align-items: center; text-align: center; ">
+                        <div class="imageWrapper">
+                            <img class="image" src="../assets/images/default_profile.png">
+                        </div>
+                        <label for="file-upload" class="file-upload">Choose File
+                            <input type="file" id="file-upload" class="file-input">
+                        </label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter service category" aria-label="Skill category" name="service[]">
+                        <br>
+                        <input type="text" class="form-control" placeholder="Enter service description" aria-label="Skill description" name="service[]">
+                    </div>
+                </div>
+            `;
+            document.getElementById('additionalService').insertAdjacentHTML('beforeend', newServiceField);
+        }
+
+        //projects - add
+
     </script>
 
     </body>

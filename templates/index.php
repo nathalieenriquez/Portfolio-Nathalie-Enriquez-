@@ -1,5 +1,5 @@
 <?php
-    require_once "../functions/upload.php"; 
+    require_once "../functions/retrieve.php"; 
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +10,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/indexStyle.css">
 
-    <title>Portfolio (Nathalie Enriquez)</title>
+    <title>Nathalie Enriquez | Web Portfolio</title>
 
     <style>
         body {
@@ -31,96 +32,6 @@
         background: lightgray;
         border-radius: 10px;
         }
-
-        .navbar a {
-            color: white;
-            position: relative;
-            transition: color 0.3s;
-            padding-bottom: 5px;
-        }
-
-        .navbar a::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ffb48c;
-            transition: width 0.3s ease-in-out;
-        }
-
-        .navbar a:hover::after {
-            width: 100%;
-        }
-        
-        .top-up {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: none;
-            cursor: pointer;
-            z-index: 1000;
-            background-color: #2f2f2f;
-            color: #ffb48c;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-size: 20px;
-            transition: opacity 0.3s;
-        }
-
-        .top-up.show {
-            display: block;
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link:hover{
-            color: #ffb48c;
-        }
-
-        .nav-link::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ffb48c;
-            transition: width 0.3s ease-in-out;
-        }
-
-        .nav-link:hover::before {
-            width: 100%;
-        }
-
-        .graphic:hover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 1px solid #ffb48c;
-            border-radius: 10px;
-            pointer-events: none;
-        }
-
-        .ui-ux:hover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border: 1px solid #ffb48c;
-            border-radius: 10px;
-            pointer-events: none;
-        }
-
       </style>
 </head>
 <body>
@@ -150,8 +61,8 @@
             <div class="row">
                 <div class="col-lg-6" style="margin-top: 12rem;">
                     <p style="color: white ; font-weight: 400; font-family: 'Montserrat', sans-serif; font-size: 30px; margin-bottom: 10px;">Hello, it's</p>
-                    <p style="color: white; font-family: 'Montserrat', sans-serif; font-size: 55px; font-weight: 600; margin-top: -20px; color: #ffb48c;">Nathalie Enriquez.</p>
-                    <p style="color: white; font-weight: 400; font-family: 'Montserrat', sans-serif; margin-top: -5px;">&nbsp;<span style="color: #ffb48c; font-weight: bold;">—</span> A creative graphic and UI/UX designer.</p>
+                    <p style="color: white; font-family: 'Montserrat', sans-serif; font-size: 55px; font-weight: 600; margin-top: -20px; color: #ffb48c;"><?php echo $firstName;?> <?php echo $lastName;?>.</p>
+                    <p style="color: white; font-weight: 400; font-family: 'Montserrat', sans-serif; margin-top: -5px;">&nbsp;<span style="color: #ffb48c; font-weight: bold;">—</span> <?php echo $description;?></p>
                     <button onclick="downloadCV()" style="font-family: 'Montserrat', sans-serif; font-size: 12px; margin-left: 10px; margin-top: 50px; border: 1px solid #ffb48c; border-radius: 10px; background-color: #202020; color: #fff; padding: 10px; transition: background-color 0.3s, color 0.3s;" onmouseover="this.style.backgroundColor='#ffb48c'; this.style.color='white';" onmouseout="this.style.backgroundColor='#202020'; this.style.color='#fff';">Download CV</button>
                 </div>
                 <div class="col-lg-6">
@@ -278,7 +189,7 @@
                     <div class="graphic" style="background-color: #202020; font-family: 'Montserrat', sans-serif; font-size: 12px; color: white; padding: 2rem; border-radius: 10px; text-align: center; position: relative;">
                         <i class="fa-solid fa-pen-nib" style="font-size: 5rem; padding-bottom: 15px; padding-top: 15px;"></i>
                         <h4 style="color: #ffb48c; font-weight: 600;">Graphic Design</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel urna sed lacus eleifend posuere.</p>
+                        <p>We include creative fusion of typography, imagery, and layout to visually communicate ideas and messages.</p>
                     </div>
                 </div>
 
@@ -286,7 +197,7 @@
                     <div class="ui-ux" style="background-color: #202020; font-family: 'Montserrat', sans-serif; font-size: 12px; color: white; padding: 2rem; border-radius: 10px; text-align: center; position: relative;">
                         <i class="fa-solid fa-desktop" style="font-size: 5rem; padding-bottom: 15px; padding-top: 15px;"></i>
                         <h4 style="color: #ffb48c; font-weight: 600;">UI/UX Design</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel urna sed lacus eleifend posuere.</p>
+                        <p>We focus on crafting seamless and intuitive digital experiences by designing user interfaces that prioritize usability, accessibility, and aesthetic appeal.</p>
                     </div>
                 </div>
             </div>
@@ -360,7 +271,7 @@
         <div class="container" style="margin-top: 2.5rem;">
                 <p style="color: #ffb48c; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: start; font-size: 14px;">CONTACT</p>
                 <h1 style="color: white; font-family: 'Montserrat', sans-serif; font-weight: 600; text-align: start; margin-top: -14px;">Ways to Get in Touch</h1>
-                <p style="color: white; font-family: 'Montserrat', sans-serif; text-align: start; padding-bottom: 3rem; font-size: 12px;">Connect with us effortlessly through various channels to discuss your needs or inquiries.<br>We're always here to assist you.</p>
+                <p style="color: white; font-family: 'Montserrat', sans-serif; text-align: start; padding-bottom: 3rem; font-size: 12px;">Connect with me effortlessly through various channels to discuss your needs or inquiries.<br>Always here to assist you.</p>
         
             <div class="row">
                 <div class="col-md-6">
@@ -404,7 +315,7 @@
     
     <footer>
         <hr style="border-top: 1px solid #ffb48c; margin-bottom: 1rem;">
-        <p style="color: white; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 12px; margin-bottom: 1.5rem;">&copy; 2024 Portfolio (Nathalie Enriquez). All Rights Reserved.</p>
+        <p style="color: white; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 12px; margin-bottom: 1.5rem;">&copy; 2024 Nathalie Enriquez | Web Portfolio. All Rights Reserved.</p>
     </footer>
     
     
@@ -413,6 +324,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        //topup
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
@@ -429,6 +341,7 @@
             }
         });
 
+        //about me - navbars
         function toggleSection(sectionId, event) {
             event.preventDefault();
             var sections = ['skills', 'affiliations', 'education'];
@@ -442,6 +355,7 @@
             }
         }
         
+        //download cv
         function downloadCV() {
             var cvUrl = 'nathalie-enriquez-cv.pdf';
             
