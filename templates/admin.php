@@ -93,7 +93,7 @@
     </section>
     </form>
 
-    <section id="about">
+    <section id="about" style="margin-bottom: 2rem">
         <h1 class="title">About Me</h1>
         <div class="description">
             <div class="row form-labels">
@@ -251,10 +251,9 @@
                 </div>
             </form>
         </div>
-        <br>
     </section>
 
-    <section id="services">
+    <section id="services" style="margin-bottom: 2rem">
         <h1 class="title">Services</h1>
 
         <div class="description">
@@ -316,7 +315,6 @@
                 </div>
             </form>
         </div>
-        <br>
     </section>
 
     <section id="projects" style="margin-bottom: 2rem">
@@ -388,7 +386,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" style="margin-bottom: 2rem">
         <h1 class="title">Contact</h1>
         <form class="description" action="../functions/update_contact.php" method="post">
             <div class="form-floating form-labels">
@@ -463,7 +461,6 @@
                 </div>
             </form>
         </div>
-        <br>
     </section>
 </div>
 
@@ -487,6 +484,8 @@
             
             var targetSection = document.getElementById(sectionId);
             targetSection.style.display = 'block';
+
+            event.preventDefault();
         }
 
         //hide nonehome
