@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("sss", $address, $contact_number, $email);
 
         if ($stmt->execute()) {
-            $stmt->close(); // Close statement here
+            $stmt->close(); // Close statement herez
         }
     }
 

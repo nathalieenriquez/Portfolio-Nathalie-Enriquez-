@@ -319,7 +319,7 @@
         <br>
     </section>
 
-    <section id="projects">
+    <section id="projects" style="margin-bottom: 2rem">
         <h1 class="title">Projects</h1>
         <div class="description">
             <div class="form-floating form-labels">
@@ -344,39 +344,52 @@
         <div class="description">
             <div class="row form-labels">
                 <div class="col">
-                    <h4 style="font-weight: 600; color: #ba5036">Projects</h4>
+                    <h4 style="font-weight: 600; color: #ba5036">Project</h4>
                 </div>
                 <div class="col d-flex justify-content-end align-items-center">
-                    <i class="fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addServiceField()"></i>
+                    <i class="categ fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addProjectField()"></i>
                 </div>
             </div>  
-            <div class="form-floating form-labels">
-                <div class="col">
-                    <p>Project Category</p>
-                    <input type="text" class="form-control" placeholder="Enter project category" aria-label="title">
-                </div>
-                <br>
-                <div class="col">
-                    <p>Project Link</p>
-                    <input type="text" class="form-control" placeholder="Enter project link" aria-label="title">
-                </div>
-                <div class="row justify-content-end mt-3 form-labels">
-                    <div class="col-auto d-flex align-items-center">
-                        <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
-                        <button type="button" class="btn-save">Save</button>
-                        <div>
-                            <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+            <form id="projectForm">
+                <div class="form-floating form-labels">
+                    <div class="row">
+                        <div class="col">
+                            <p>Project Category</p>
+                            <input type="text" class="form-control" placeholder="Enter project category" aria-label="title" name="project[]">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <p>Project Link</p>
+                            </div>
+                            <div>
+                                <i class="link fa-solid fa-circle-plus add" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addProjectLink()"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Enter project link" aria-label="title" name="projectLink[]">
+                        </div>
+                    </div>
+                    <div id="additionalProjects"></div>
+                    <div class="row justify-content-end mt-3 form-labels">
+                        <div class="col-auto d-flex align-items-center">
+                            <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
+                            <button type="button" class="btn-save">Save</button>
+                            <div>
+                                <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <br>
     </section>
 
     <section id="contact">
         <h1 class="title">Contact</h1>
-        
         <form class="description" action="../functions/update_contact.php" method="post">
             <div class="form-floating form-labels">
                 <div class="col">
@@ -691,9 +704,78 @@
             `;
             document.getElementById('additionalService').insertAdjacentHTML('beforeend', newServiceField);
         }
+        
+        //projects - add project category
+        function addProjectField() {
+            const projectCount = document.querySelectorAll('.project-section').length + 2;
+            const newProjectField = `
+                <div class="description project-section">
+                    <div class="row form-labels">
+                        <div class="col">
+                            <h4 style="font-weight: 600; color: #ba5036">Project ${projectCount}</h4>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center">
+                            <i class="fa-solid fa-circle-plus add categ" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addProjectField()"></i>
+                        </div>
+                    </div>  
+                    <form id="projectForm">
+                        <div class="form-floating form-labels">
+                            <div class="row">
+                                <div class="col">
+                                    <p>Project Category</p>
+                                    <input type="text" class="form-control" placeholder="Enter project category" aria-label="title" name="project[]">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <p>Project Link</p>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-circle-plus add link" style="margin-right: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;" onclick="addProjectLink(${projectCount})"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Enter project link" aria-label="title" name="projectLink[]">
+                                </div>
+                            </div>
+                            <div id="additionalProjects${projectCount}"></div>
+                            <div class="row justify-content-end mt-3 form-labels">
+                                <div class="col-auto d-flex align-items-center">
+                                    <button type="button" class="btn-save" style="margin-right: .5rem">Edit</button>
+                                    <button type="button" class="btn-save">Save</button>
+                                    <div>
+                                        <i class="fa-solid fa-trash" style="margin-left: 1rem; margin-top: .5rem; color: #ba5036; font-size: 20px; cursor: pointer;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            `;
 
-        //projects - add
+            const newProjectContainer = document.createElement('div');
+            newProjectContainer.classList.add('project-section');
+            newProjectContainer.innerHTML = newProjectField;
 
+            const projectsContainer = document.getElementById('projects');
+            projectsContainer.insertAdjacentElement('beforeend', newProjectContainer);
+        }
+
+        //projects - add project link
+        function addProjectLink(projectNumber) {
+            const newProjectField = `
+                <div class="row mt-3">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Enter project link" aria-label="title" name="projectLink[]">
+                    </div>
+                </div>
+            `;
+            const additionalProjects = document.getElementById(`additionalProjects${projectNumber}`);
+            additionalProjects.insertAdjacentHTML('beforeend', newProjectField);
+        }
     </script>
 
     </body>
